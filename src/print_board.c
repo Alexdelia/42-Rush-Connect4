@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 13:07:42 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/09 22:40:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	print_board(t_env *e)
 	while (--row + 1 > 0)
 	{
 		i += ft_strcpy(&buffer[i], C_FRAME);
-		i += ft_strcpy(&buffer[i], "  ");
+		i += ft_strcpy(&buffer[i], "  \033[0m\033[K");
 		col = -1;
 		while (++col < e->col)
 			print_coin(e, e->board[col][row], buffer, &i);

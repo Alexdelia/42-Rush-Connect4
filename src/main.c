@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 22:32:02 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 00:07:17 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ int	main(int ac, char **av)
 		return (1);
 
 	play(&e);	// might get return if win or lose or full board
-
-	// test
-	e.board[2][0] = USER;
-	e.board[2][1] = AI;
-	e.board[3][0] = USER;
-	e.board[4][0] = AI;
-	//e.board[4][1] = USER;
-	print_board(&e);
 
 	free_board(e.board, e.col);
 	return (0);

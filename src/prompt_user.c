@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_coin.c                                         :+:      :+:    :+:   */
+/*   prompt_user.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 13:59:07 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 00:09:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	print_coin_out_of_range(const size_t index, const size_t size)
 	ft_ps(")\n");
 }
 
-bool	add_coin(t_env *e, const size_t index, const short player)
+static bool	add_coin(t_env *e, const size_t index, const short player)
 {
 	size_t	i;
 
@@ -46,4 +46,28 @@ bool	add_coin(t_env *e, const size_t index, const short player)
 	ft_pnerc(index, C_MAGENTA);
 	ft_pserc(" is full\n", C_RED);
 	return (false);
+}
+
+bool	prompt_user(t_env *e)
+{
+	char	buffer[4];
+	ssize_t	r;
+
+	if (is_board_empty(e->board, e->col))
+		ft_psc("\nEnter index of your coin ", C_BOLD);
+	if (e->col < 10)
+		r = 1;
+	else
+		r = 3;
+	r = read(STDIN_FILENO, buffer, r);	// buggy
+	if (r < 1)
+		return (false);
+	buffer[r] = '\0';
+	if (!is_num(buffer))
+	{
+		ft_pserc("\"", C_RED);
+		ft_pserc(buffer, C_MAGENTA);
+		ft_pserc("\" is not a valid index\n", C_RED);
+	}
+	return (add_coin(e, atoi(buffer), USER)); //
 }
