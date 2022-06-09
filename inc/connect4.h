@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 23:56:37 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 00:20:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdbool.h>
+# include <time.h>	//
 
 # include "../libft/inc/libft.h"
 
@@ -47,6 +48,8 @@ bool	init_board(t_env *e);
 
 int		play(t_env *e);
 bool	prompt_user(t_env *e);
+void	ai(t_env *e);
+bool	add_coin(t_env *e, const size_t index, const short player);
 
 void	print_board(t_env *e);
 
