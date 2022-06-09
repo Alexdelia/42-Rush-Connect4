@@ -6,12 +6,15 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 13:58:57 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/09 22:35:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONNECT4_H
 # define CONNECT4_H
+
+# include <unistd.h>
+# include <stdbool.h>
 
 # include "../libft/inc/libft.h"
 
@@ -50,5 +53,8 @@ void	print_board(t_env *e);
 void	free_board(short **board, const size_t size);
 
 int		error(const char *str, const int ret);
+bool	is_num(const char *n);
+bool	is_board_empty(short **board, const size_t col);
+bool	is_board_full(short **board, const size_t col, const size_t row);
 
 #endif
