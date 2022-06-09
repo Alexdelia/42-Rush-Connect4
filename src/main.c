@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 13:11:28 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/09 13:59:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,7 @@ int	main(int ac, char **av)
 	if (!init(&e, ac, av))
 		return (1);
 
-	// while (!win && !lose && board full)
-	print_board(&e);
-	while ()
-	//	while !legal move
-	//		ask user to play
-	//	if (win || board full)
-	//		exit / break
-	//	ai play
+	play(&e);	// might get return if win or lose or full board
 
 	// test
 	e.board[2][0] = USER;
