@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 12:08:19 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/09 12:32:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
 # define COIN_AI		"●"/*"⬤"*//*"⚇"*/
 
-# define MAX_SIZE		255
+# define MAX_SIZE		256
 # define BUFFER_SIZE	800000
 
 # define C_FRAME		"\033[48;2;100;100;100m"

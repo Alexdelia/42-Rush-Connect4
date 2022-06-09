@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 12:26:16 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/09 12:32:13 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ static void	print_frame_line(t_env *e, char *buffer, size_t *i, const bool n)
 	col = -1;
 	while (++col < e->col + 4)
 	{
-		if (n && col >= 2 && col < e->col + 2)
-			buffer[*i] = col - 2 + '0';
+		if (n && col >= 2 && col < e->col + 2 && col < 15)
+		{
+			if (col - 2 < 10)
+				buffer[*i] = col - 2 + '0';
+			else
+				buffer[*i] = '.';
+		}
 		else
 			buffer[*i] = ' ';
 		*i += 1;
