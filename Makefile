@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/06/09 09:36:51 by adelille         ###   ########.fr        #
+#    Updated: 2022/06/09 11:24:05 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,11 +60,11 @@ INC =		./inc/
 
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-#SRCS =		$(wildcard $(SRCSPATH)*.cpp) $(wildcard $(SRCSPATH)**/*.cpp)
-SRCS =		$(call rwildcard,$(SRCSPATH),*cpp)
+#SRCS =		$(wildcard $(SRCSPATH)*.c) $(wildcard $(SRCSPATH)**/*.c)
+SRCS =		$(call rwildcard,$(SRCSPATH),*c)
 SRCSNAME =	$(subst $(SRCSPATH), , $(SRCS))
 
-OBJSNAME =	$(SRCSNAME:.cpp=.o)
+OBJSNAME =	$(SRCSNAME:.c=.o)
 OBJS =		$(addprefix $(OBJSPATH), $(OBJSNAME))
 
 # *************************************************************************** #
@@ -93,7 +93,7 @@ all:		launch $(NAME)
 launch:
 	$(call progress_bar)
 
-$(NAME):	$(LIBNAME) $(OBJS)
+$(NAME):	$(OBJS) $(LIBNAME)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBNAME) -o $(NAME)
 
 $(LIBNAME):

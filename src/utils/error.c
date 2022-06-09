@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 10:11:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 10:38:52 by adelille         ###   ########.fr       */
+/*   Created: 2022/06/09 10:34:30 by adelille          #+#    #+#             */
+/*   Updated: 2022/06/09 11:16:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/connect4.h"
 
-void	free_board(short **board, const size_t size)
+int	error(const char *str, const int ret)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < size)
-	{
-		free(board[i]);
-		i++;
-	}
-	free(board);
+	ft_pser(C_BOLD);
+	ft_pserc("Error:\t", C_RED);
+	ft_pserc(str, C_RED);
+	ft_pser("\n");
+	return (ret);
 }

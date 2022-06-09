@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:47:54 by adelille          #+#    #+#             */
-/*   Updated: 2022/04/20 19:02:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/09 11:22:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ bool			ft_pb_oms(const bool w, const char *str, const size_t size);
 bool			ft_pb_omsa(const bool w, const char *str, const size_t size);
 
 int				ft_strcmp(const char *s1, const char *s2);
-int				ft_strcpy(char *dst, const char *src);
+size_t			ft_strcpy(char *dst, const char *src);
 size_t			ft_strlcpy(char *dst, const char *src, const size_t size);
 size_t			ft_strocpy(char *dst, const char *src, const size_t size);
 char			*ft_strjoin_free(char *s1, char *s2,

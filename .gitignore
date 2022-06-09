@@ -1,6 +1,7 @@
 *~
 obj
 a.out
+tmp
 libft.a
 .vscode
 null.d
