@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 13:15:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 22:12:12 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 00:14:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	play(t_env *e)
 	bool	full;
 
 	full = false;
-	while (!full && !is_connect(&e->b, AI))
+	while (!full && !is_connect(&e->b, AI))	// first to play need to be randomly choosen
 	{
 		print_board(e);
 		legal = false;
