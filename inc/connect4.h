@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 21:59:57 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 22:02:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define DEFAULT_ROW	6
 
 # define NONE			0
-# define USER			1
-# define AI				2
+# define USER			2
+# define AI				1
 
 # define COIN_EMPTY		" "
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
@@ -41,7 +41,7 @@ typedef short			t_coin;
 
 typedef struct s_board
 {
-	t_coin	**board;
+	t_coin	board[MAX_SIZE][MAX_SIZE];
 	t_index	col;
 	t_index	row;
 	size_t	n_move;

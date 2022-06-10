@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 21:55:05 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 22:03:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	main(int ac, char **av)
 	if (!init(&e, ac, av))
 		return (1);
 	print_win_msg(&e, play(&e));
-	free_board(e.b.board, e.b.col);
+	//free_board(e.b.board, e.b.col);
 	return (0);
 }
