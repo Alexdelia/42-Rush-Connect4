@@ -6,15 +6,15 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 11:11:10 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:27:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/connect4.h"
 
-static bool	is_index_in_range(const size_t index, const size_t size)
+static bool	is_index_in_range(const unsigned short index, const size_t size)
 {
-	if (index < 0 || index >= size)
+	if (index >= size)
 	{
 		ft_pnerc(index, C_MAGENTA);
 		ft_pserc(" is out of range\t", C_RED);
@@ -28,7 +28,7 @@ static bool	is_index_in_range(const size_t index, const size_t size)
 	return (true);
 }
 
-bool	add_coin(t_env *e, const size_t index, const short player)
+bool	add_coin(t_env *e, const unsigned short index, const short player)
 {
 	size_t	i;
 
@@ -52,7 +52,7 @@ bool	prompt_user(t_env *e)
 {
 	char	*buffer;
 	size_t	r;
-	size_t	index;
+	unsigned short	index;
 
 	if (is_board_empty(e->board, e->col))
 		ft_psc("\nEnter index of your coin ", C_BOLD);

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 11:11:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:21:10 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@
 
 typedef struct s_env
 {
+	short	**board;
 	size_t	col;
 	size_t	row;
-	short	**board;
+	size_t	n_move;
 	char	*c_user;
 	char	*c_ai;
 }			t_env;
@@ -50,7 +51,7 @@ bool	init_board(t_env *e);
 int		play(t_env *e);
 bool	prompt_user(t_env *e);
 void	ai(t_env *e);
-bool	add_coin(t_env *e, const size_t index, const short player);
+bool	add_coin(t_env *e, const unsigned short index, const short player);
 
 void	print_board(t_env *e);
 void	print_win_msg(t_env *e, const int who);

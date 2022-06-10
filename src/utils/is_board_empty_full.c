@@ -6,34 +6,25 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:26:27 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 22:35:56 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:23:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/connect4.h"
 
-bool	is_board_empty(short **board, const size_t col)
-{
-	size_t	c;
+// might try inline
 
-	c = -1;
-	while (++c < col)
-	{
-		if (board[c][0] != NONE)
-			return (false);
-	}
-	return (true);
+bool	is_board_empty(t_env *e)
+{
+	return (e->n_move);
 }
 
-bool	is_board_full(short **board, const size_t col, const size_t row)
+bool	is_board_full(t_env *e)
 {
-	size_t	c;
+	return (e->n_move == e->col * e->row);
+}
 
-	c = -1;
-	while (++c < col)
-	{
-		if (board[c][row - 1] == NONE)
-			return (false);
-	}
-	return (true);
+bool	is_col_full(short **board, const unsigned short index)
+{
+	return (e->board
 }
