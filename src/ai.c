@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 21:44:17 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 22:15:43 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ static t_index	solve(t_board b)
 			{
 				best_score = tmp;
 				best_index = index;
+				ft_ps("\r");
+				ft_pn(best_score);
+				ft_ps("  ");
 			}
 		}
 	}

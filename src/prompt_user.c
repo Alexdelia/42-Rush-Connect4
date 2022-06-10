@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 21:37:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 22:12:13 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	prompt_user(t_env *e)
 	size_t	r;
 	t_index	index;
 
-	if (is_board_empty(&e->b))
+	//if (is_board_empty(&e->b))
 		ft_psc("\nEnter index of your coin ", C_BOLD);
 	//r = read(STDIN_FILENO, buffer, r);	// buggy
 	buffer = gnl(&r, false);
