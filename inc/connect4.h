@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 00:20:40 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:11:31 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
 # define COIN_AI		"●"/*"⬤"*//*"⚇"*/
 
-# define MAX_SIZE		256
-# define BUFFER_SIZE	800000
+# define MAX_SIZE			256
+# define BUFFER_SIZE		800000
+# define GNL_BUFFER_SIZE	16
 
 # define C_FRAME		"\033[48;2;100;100;100m"
 
@@ -52,10 +53,15 @@ void	ai(t_env *e);
 bool	add_coin(t_env *e, const size_t index, const short player);
 
 void	print_board(t_env *e);
+void	print_win_msg(t_env *e, const int who);
 
 void	free_board(short **board, const size_t size);
 
 int		error(const char *str, const int ret);
+char	*gnl(size_t *size, bool f);
+char	*ft_strjoin_n_free(char *s1, size_t *size1,
+			const char *s2, const size_t size2);
+char	*ft_strdup_n(const char *src, const size_t size);
 bool	is_num(const char *n);
 bool	is_board_empty(short **board, const size_t col);
 bool	is_board_full(short **board, const size_t col, const size_t row);

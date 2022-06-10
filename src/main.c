@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 00:07:17 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:45:31 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ int	main(int ac, char **av)
 
 	if (!init(&e, ac, av))
 		return (1);
-
-	play(&e);	// might get return if win or lose or full board
-
+	print_win_msg(&e, play(&e));
 	free_board(e.board, e.col);
 	return (0);
 }
