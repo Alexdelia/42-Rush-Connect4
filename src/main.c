@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 22:03:37 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 00:12:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 
 bool	init(t_env *e, const int ac, char **av)
 {
-	(void)ac;
-	(void)av;
-	// board from arg
-	// else ask
-	e->b.col = DEFAULT_COL;
-	e->b.row = DEFAULT_ROW;
+	if (ac == 3)
+	{
+		if (!is_num(av[1]) || !is_num(av[2]))
+			return (print_wrong_size());
+		e->b.col = atoi(av[1]);
+		e->b.row = atoi(av[2]);
+		if (e->b.col < DEFAULT_COL || e->b.col >= MAX_SIZE
+			|| e->b.row < DEFAULT_ROW || e->b.row >= MAX_SIZE)
+			return (print_wrong_size());
+	}
+	else
+	{
+		ft_psc("No size specified, using default\n", C_BOLD);	// might ask user for size
+		e->b.col = DEFAULT_COL;
+		e->b.row = DEFAULT_ROW;
+	}
 	if (!init_board(e))
 		return (false);
 	e->b.n_move = 0;

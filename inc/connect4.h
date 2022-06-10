@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 22:02:35 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 00:07:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ bool	add_coin(t_board *b, const t_index index, const t_coin player);
 
 void	print_board(t_env *e);
 void	print_win_msg(t_env *e, const int who);
+bool	print_wrong_size(void);
 
 void	free_board(t_coin **board, const size_t size);
 
