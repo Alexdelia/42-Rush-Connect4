@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:10:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 11:11:45 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:14:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,13 @@ static char	*reading(char *buffer, size_t *index, char *line, size_t *size)
 	return (NULL);
 }
 
+static char	*gnl_free(char *buffer, char *line)
+{
+	free(buffer);
+	free(line);
+	return (NULL);
+}
+
 char	*gnl(size_t *size, bool f)
 {
 	static char		*buffer = NULL;
@@ -68,15 +75,11 @@ char	*gnl(size_t *size, bool f)
 	char			*line;
 	ssize_t			res;
 
-	line = ft_strdup_n("", 0);
-	if (f || !line)
-	{
-		free(buffer);
-		free(line);
-		return (NULL);
-	}
 	if (GNL_BUFFER_SIZE <= 0)
 		return (NULL);
+	line = ft_strdup_n("", 0);
+	if (f || !line)
+		return (gnl_free(buffer, line));
 	if (!buffer)
 	{
 		buffer = (char *)malloc(sizeof(char) * (GNL_BUFFER_SIZE + 1));
