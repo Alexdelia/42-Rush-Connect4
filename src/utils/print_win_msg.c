@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 10:33:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 11:11:07 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 20:27:13 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	print_win_msg(t_env *e, const int who)
 		ai_win();
 	else
 	{
-		if (is_connect(e->board, e->col, e->row, USER))
+		if (is_connect(&e->b, USER))
 			user_win();
-		else if (is_connect(e->board, e->col, e->row, AI))
+		else if (is_connect(&e->b, AI))
 			ai_win();
 		else
 			board_full();

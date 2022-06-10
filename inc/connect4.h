@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 16:21:10 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 21:59:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,20 @@
 
 # define C_FRAME		"\033[48;2;100;100;100m"
 
+typedef unsigned short	t_index;
+typedef short			t_coin;
+
+typedef struct s_board
+{
+	t_coin	**board;
+	t_index	col;
+	t_index	row;
+	size_t	n_move;
+}			t_board;
+
 typedef struct s_env
 {
-	short	**board;
-	size_t	col;
-	size_t	row;
-	size_t	n_move;
+	t_board	b;
 	char	*c_user;
 	char	*c_ai;
 }			t_env;
@@ -51,12 +59,12 @@ bool	init_board(t_env *e);
 int		play(t_env *e);
 bool	prompt_user(t_env *e);
 void	ai(t_env *e);
-bool	add_coin(t_env *e, const unsigned short index, const short player);
+bool	add_coin(t_board *b, const t_index index, const t_coin player);
 
 void	print_board(t_env *e);
 void	print_win_msg(t_env *e, const int who);
 
-void	free_board(short **board, const size_t size);
+void	free_board(t_coin **board, const size_t size);
 
 int		error(const char *str, const int ret);
 char	*gnl(size_t *size, bool f);
@@ -64,9 +72,9 @@ char	*ft_strjoin_n_free(char *s1, size_t *size1,
 			const char *s2, const size_t size2);
 char	*ft_strdup_n(const char *src, const size_t size);
 bool	is_num(const char *n);
-bool	is_board_empty(short **board, const size_t col);
-bool	is_board_full(short **board, const size_t col, const size_t row);
-int		is_connect(short **board,
-			const size_t col, const size_t row, const short player);
+bool	is_board_empty(const t_board *b);
+bool	is_board_full(const t_board *b);
+bool	is_col_full(const t_board *b, const t_index index);
+int		is_connect(const t_board *b, const t_coin player);
 
 #endif

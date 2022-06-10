@@ -6,21 +6,21 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 22:40:22 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 21:54:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/connect4.h"
 
-static void	print_frame_line(t_env *e, char *buffer, size_t *i, const bool n)
+static void	print_frame_line(t_env *e, char *buffer, t_index *i, const bool n)
 {
-	size_t	col;
+	t_index	col;
 
 	*i += ft_strcpy(&buffer[*i], C_FRAME);
 	col = -1;
-	while (++col < e->col + 4)
+	while (++col < e->b.col + 4)
 	{
-		if (n && col >= 2 && col < e->col + 2 && col < 15)
+		if (n && col >= 2 && col < e->b.col + 2 && col < 15)
 		{
 			if (col - 2 < 10)
 				buffer[*i] = col - 2 + '0';
@@ -36,7 +36,7 @@ static void	print_frame_line(t_env *e, char *buffer, size_t *i, const bool n)
 	*i += 1;
 }
 
-static void	print_coin(t_env *e, const short coin, char *buffer, size_t *i)
+static void	print_coin(t_env *e, const t_coin coin, char *buffer, t_index *i)
 {
 	if (coin == USER)
 	{
@@ -58,20 +58,20 @@ static void	print_coin(t_env *e, const short coin, char *buffer, size_t *i)
 void	print_board(t_env *e)
 {
 	char	buffer[BUFFER_SIZE];
-	size_t	col;
-	size_t	row;
-	size_t	i;
+	t_index	col;
+	t_index	row;
+	t_index	i;
 
 	i = ft_strcpy(buffer, C_CLEAR);
 	print_frame_line(e, buffer, &i, false);
-	row = e->row;
-	while (--row + 1 > 0)
+	row = e->b.row;
+	while (row-- > 0)
 	{
 		i += ft_strcpy(&buffer[i], C_FRAME);
 		i += ft_strcpy(&buffer[i], "  \033[0m\033[K");
 		col = -1;
-		while (++col < e->col)
-			print_coin(e, e->board[col][row], buffer, &i);
+		while (++col < e->b.col)
+			print_coin(e, e->b.board[col][row], buffer, &i);
 		i += ft_strcpy(&buffer[i], C_FRAME);
 		i += ft_strcpy(&buffer[i], "  \033[0m\033[K");
 		buffer[i++] = '\n';

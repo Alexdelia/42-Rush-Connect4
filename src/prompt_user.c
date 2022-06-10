@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 16:27:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 21:37:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/connect4.h"
 
-static bool	is_index_in_range(const unsigned short index, const size_t size)
+static bool	is_index_in_range(const t_index index, const t_index size)
 {
 	if (index >= size)
 	{
@@ -28,33 +28,13 @@ static bool	is_index_in_range(const unsigned short index, const size_t size)
 	return (true);
 }
 
-bool	add_coin(t_env *e, const unsigned short index, const short player)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < e->row)
-	{
-		if (e->board[index][i] == NONE)
-		{
-			e->board[index][i] = player;
-			return (true);
-		}
-		i++;
-	}
-	ft_pserc("column ", C_RED);
-	ft_pnerc(index, C_MAGENTA);
-	ft_pserc(" is full\n", C_RED);
-	return (false);
-}
-
 bool	prompt_user(t_env *e)
 {
 	char	*buffer;
 	size_t	r;
-	unsigned short	index;
+	t_index	index;
 
-	if (is_board_empty(e->board, e->col))
+	if (is_board_empty(&e->b))
 		ft_psc("\nEnter index of your coin ", C_BOLD);
 	//r = read(STDIN_FILENO, buffer, r);	// buggy
 	buffer = gnl(&r, false);
@@ -72,7 +52,7 @@ bool	prompt_user(t_env *e)
 	}
 	index = atoi(buffer);
 	free(buffer);
-	if (!is_index_in_range(index, e->col))
+	if (!is_index_in_range(index, e->b.col))
 		return (false);
-	return (add_coin(e, index, USER)); //
+	return (add_coin(&e->b, index, USER)); //
 }

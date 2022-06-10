@@ -6,17 +6,17 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:48:51 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 00:06:30 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/10 20:26:06 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/connect4.h"
 
-static bool horizontal(short **b,
-	const size_t col, const size_t row, const short p)
+static bool horizontal(t_coin **b,
+	const t_index col, const t_index row, const t_coin p)
 {
-	size_t			c;
-	size_t			r;
+	t_index			c;
+	t_index			r;
 
 	r = -1;
 	while (++r < row - 3)
@@ -30,11 +30,11 @@ static bool horizontal(short **b,
 	return (false);
 }
 
-static bool	vertical(short **b,
-	const size_t col, const size_t row, const short p)
+static bool	vertical(t_coin **b,
+	const t_index col, const t_index row, const t_coin p)
 {
-	size_t			c;
-	size_t			r;
+	t_index			c;
+	t_index			r;
 
 	c = -1;
 	while (++c < col - 3)
@@ -48,11 +48,11 @@ static bool	vertical(short **b,
 	return (false);
 }
 
-static bool	stonk_diagonal(short **b,
-	const size_t col, const size_t row, const short p)
+static bool	stonk_diagonal(t_coin **b,
+	const t_index col, const t_index row, const t_coin p)
 {
-	size_t			c;
-	size_t			r;
+	t_index			c;
+	t_index			r;
 
 	c = 2;
 	while (++c < col)
@@ -66,11 +66,11 @@ static bool	stonk_diagonal(short **b,
 	return (false);
 }
 
-static bool	not_stonk_diagonal(short **b,
-	const size_t col, const size_t row, const short p)
+static bool	not_stonk_diagonal(t_coin **b,
+	const t_index col, const t_index row, const t_coin p)
 {
-	size_t			c;
-	size_t			r;
+	t_index			c;
+	t_index			r;
 
 	c = 2;
 	while (++c < col)
@@ -84,11 +84,10 @@ static bool	not_stonk_diagonal(short **b,
 	return (false);
 }
 
-int	is_connect(short **board,
-	const size_t col, const size_t row, const short player)
+int	is_connect(const t_board *b, const t_coin player)
 {
-	return (horizontal(board, col, row, player)
-		|| vertical(board, col, row, player)
-		|| stonk_diagonal(board, col, row, player)
-		|| not_stonk_diagonal(board, col, row, player));
+	return (horizontal(b->board, b->col, b->row, player)
+		|| vertical(b->board, b->col, b->row, player)
+		|| stonk_diagonal(b->board, b->col, b->row, player)
+		|| not_stonk_diagonal(b->board, b->col, b->row, player));
 }
