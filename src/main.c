@@ -3,27 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:30:07 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:51:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-bool	init(t_env *e, const int ac, char **av)
+static bool	init_col_row(t_env *e, char **av)
 {
-	if (ac == 3)
-	{
-		if (!is_num(av[1]) || !is_num(av[2]))
-			return (print_wrong_size());
-		e->b.col = atoi(av[1]);
-		e->b.row = atoi(av[2]);
-		if (e->b.col < DEFAULT_COL/* || e->b.col >= MAX_SIZE*/
-			|| e->b.row < DEFAULT_ROW/* || e->b.row >= MAX_SIZE*/)
-			return (print_wrong_size());
-	}
+	long	col;
+	long	row;
+
+	if (!is_num(av[1]) || !is_num(av[2]))
+		return (print_wrong_size());
+	col = ft_atol(av[1]);
+	row = ft_atol(av[2]);
+	if (col < DEFAULT_COL || col >= MAX_SIZE
+		|| row < DEFAULT_ROW || row >= MAX_SIZE)
+		return (print_wrong_size());
+	e->b.col = col;
+	e->b.row = row;
+	return (true);
+}
+
+static bool	init(t_env *e, const int ac, char **av)
+{
+	if (ac == 3 && !init_col_row(e, av))
+		return (false);
 	else
 	{
 		ft_psc("No size specified, using default\n", C_BOLD);

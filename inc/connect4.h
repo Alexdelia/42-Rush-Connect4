@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:37:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:47:00 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
 # define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
-//# define MAX_SIZE			256
+# define MAX_SIZE			USHRT_MAX
 # define BUFFER_SIZE		800000
 # define GNL_BUFFER_SIZE	16
 
