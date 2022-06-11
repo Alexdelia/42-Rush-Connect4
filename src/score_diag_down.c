@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   score_diag_down.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:48:53 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 19:03:43 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:20:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	score_diag_down_right(const t_board *b, t_index index, t_index height
 	int	i;
 
 	i = 1;
-	if (index == b->col
-		|| index + 1 == b->col
-		|| height - 1 == 0 || height == 0)
+	if (index + 2 >= b->col || height == 0
+		|| height - 1 == 0
+		|| height - 2 == 0)
 		return (0);
 	if (!(b->board[index + 1][height - 1] == b->board[index + 2][height - 2]))
 		return (0);
@@ -50,9 +50,9 @@ static int	score_diag_down_left(const t_board *b, t_index index, t_index height)
 	int	i;
 
 	i = 1;
-	if (index == 0
-		|| index - 1 == 0
-		|| height - 1 == 0 || height == 0)
+	if (index == 0 || height == 0
+		|| index - 1 == 0 || height - 1 == 0
+		|| index - 2 == 0 || height - 2 == 0)
 		return (0);
 	if (!(b->board[index - 1][height - 1] == b->board[index - 2][height - 2]))
 		return (0);	

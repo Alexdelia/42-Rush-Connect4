@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   score_diag_up.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:53:19 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 19:03:37 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:19:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ static int	score_diag_up_right(const t_board *b, t_index index, t_index height)
 	int	i;
 
 	i = 1;
-	if (index == b->col
-		|| index + 1 == b->col
-		|| height + 1 == b->row || height == b->row)
+	if (index + 2 >= b->col || height + 2 >= b->row)
 		return (0);
 	if (!(b->board[index + 1][height + 1] == b->board[index + 2][height + 2]))
 		return (0);
