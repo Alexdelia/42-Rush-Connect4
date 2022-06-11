@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 22:12:13 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 11:38:32 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static bool	is_index_in_range(const t_index index, const t_index size)
 		ft_pserc("index", C_MAGENTA);
 		ft_pserc(" < ", C_BLUE);
 		ft_pnerc(size, C_BLUE);
-		ft_ps(")\n");
+		ft_psc(")\n", C_BLUE);
 		return (false);
 	}
 	return (true);
