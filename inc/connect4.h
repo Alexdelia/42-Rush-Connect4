@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   connect4.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:06:16 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:26:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		play(t_env *e);
 bool	prompt_user(t_env *e);
 void	ai(t_env *e);
 bool	add_coin(t_board *b, const t_index index, const t_coin player);
+void	remove_coin(t_board *b, const t_index index);
 
 void	print_board(t_env *e);
 void	print_win_msg(t_env *e, const int who);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ai.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:05:53 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:23:23 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 static bool	is_winning_move(t_board b, const t_index move, const t_coin player)
 {
+	bool	ret;
+
 	add_coin(&b, move, player);
-	return (is_connect(&b, player));
+	ret = is_connect(&b, player);
+	remove_coin(&b, move);
+	return (ret);
 }
 
 static bool	forced(const t_board *b, t_index *index)
