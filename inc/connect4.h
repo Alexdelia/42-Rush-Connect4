@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 12:48:42 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 15:08:21 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define DEFAULT_ROW	6
 
 # define NONE			0
-# define USER			2
-# define AI				1
+# define USER			1
+# define AI				2
 
 # define COIN_EMPTY		" "
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
@@ -36,9 +36,12 @@
 
 # define C_FRAME		"\033[48;2;100;100;100m"
 
-# define WIN_SCORE		10000
-# define SC_RIGHT		1
-# define SC_LEFT		0
+# define WIN_SCORE		1000000
+# define DENY_SCORE		500000
+
+# define DIR_R			1
+# define DIR_L			0
+# define OUT_OF_BOUNDS	0
 
 typedef unsigned short	t_index;
 typedef char			t_coin;
@@ -89,4 +92,8 @@ bool	is_col_full(const t_board *b, const t_index index);
 int		is_connect(const t_board *b, const t_coin player);
 
 t_index	get_col_height(const t_board *board, t_index col);
+int	get_score(const t_board *b, int index);
+int	score_hor(const t_board *b, t_index index);
+int	score_diag_up(const t_board *b, t_index index);
+int	score_diag_down(const t_board *b, t_index index);
 #endif
