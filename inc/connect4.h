@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   connect4.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 00:07:36 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:48:42 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@
 
 # define C_FRAME		"\033[48;2;100;100;100m"
 
+# define WIN_SCORE		10000
+# define SC_RIGHT		1
+# define SC_LEFT		0
+
 typedef unsigned short	t_index;
-typedef short			t_coin;
+typedef char			t_coin;
 
 typedef struct s_board
 {
@@ -53,6 +57,12 @@ typedef struct s_env
 	char	*c_user;
 	char	*c_ai;
 }			t_env;
+
+typedef	struct s_moves
+{
+	t_index	best_index;
+	int		best_score;	
+}	t_moves;
 
 bool	init_board(t_env *e);
 
@@ -78,4 +88,5 @@ bool	is_board_full(const t_board *b);
 bool	is_col_full(const t_board *b, const t_index index);
 int		is_connect(const t_board *b, const t_coin player);
 
+t_index	get_col_height(const t_board *board, t_index col);
 #endif
