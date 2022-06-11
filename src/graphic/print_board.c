@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:46:08 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:43:10 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-static void	print_frame_line(t_env *e, char *buffer, t_index *i, const bool n)
+static void	print_frame_line(t_env *e, char *buffer, size_t *i, const bool n)
 {
 	t_index	col;
 
@@ -36,7 +36,7 @@ static void	print_frame_line(t_env *e, char *buffer, t_index *i, const bool n)
 	*i += 1;
 }
 
-static void	print_coin(t_env *e, const t_coin coin, char *buffer, t_index *i)
+static void	print_coin(t_env *e, const t_coin coin, char *buffer, size_t *i)
 {
 	if (coin == USER)
 	{
@@ -60,7 +60,7 @@ void	print_board(t_env *e)
 	char	buffer[BUFFER_SIZE];
 	t_index	col;
 	t_index	row;
-	t_index	i;
+	size_t	i;
 
 	i = ft_strcpy(buffer, C_CLEAR);
 	print_frame_line(e, buffer, &i, false);
