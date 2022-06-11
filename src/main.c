@@ -6,13 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:50:28 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 18:57:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
-
-t_index	g_order[MAX_SIZE];
 
 bool	init(t_env *e, const int ac, char **av)
 {
@@ -22,13 +20,13 @@ bool	init(t_env *e, const int ac, char **av)
 			return (print_wrong_size());
 		e->b.col = atoi(av[1]);
 		e->b.row = atoi(av[2]);
-		if (e->b.col < DEFAULT_COL || e->b.col >= MAX_SIZE
-			|| e->b.row < DEFAULT_ROW || e->b.row >= MAX_SIZE)
+		if (e->b.col < DEFAULT_COL/* || e->b.col >= MAX_SIZE*/
+			|| e->b.row < DEFAULT_ROW/* || e->b.row >= MAX_SIZE*/)
 			return (print_wrong_size());
 	}
 	else
 	{
-		ft_psc("No size specified, using default\n", C_BOLD);	// might ask user for size
+		ft_psc("No size specified, using default\n", C_BOLD);
 		e->b.col = DEFAULT_COL;
 		e->b.row = DEFAULT_ROW;
 	}
@@ -47,6 +45,6 @@ int	main(int ac, char **av)
 	if (!init(&e, ac, av))
 		return (1);
 	print_win_msg(&e, play(&e));
-	//free_board(e.b.board, e.b.col);
+	free_board(e.b.board, e.b.col);
 	return (0);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   score_hor.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:31:34 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 18:19:23 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:02:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "connect4.h"
+#include "connect4.h"
 
 static int	score_hor_right(const t_board *b, t_index index, t_index height);
 static int	score_hor_left(const t_board *b, t_index index, t_index height);
@@ -32,7 +32,7 @@ static int	score_hor_right(const t_board *b, t_index index, t_index height)
 	int	i;
 
 	i = 1;
-	if (index == b->col 
+	if (index == b->col
 		|| index + 1 == b->col || b->board[index + 1][height] == 0)
 		return (0);
 	if (!(b->board[index + 1][height] == b->board[index + 2][height]))
@@ -53,7 +53,7 @@ static int	score_hor_left(const t_board *b, t_index index, t_index height)
 		|| index - 1 == 0 || b->board[index - 1][height] == 0)
 		return (0);
 	if (!(b->board[index - 1][height] == b->board[index - 2][height]))
-		return (0);	
+		return (0);
 	if (b->board[index - 1][height] == AI)
 		return (20);
 	else if (b->board[index - 1][height] == USER)

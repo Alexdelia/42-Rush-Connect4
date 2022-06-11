@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   connect4.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:34:32 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:01:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
 # define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
-# define MAX_SIZE			256
+//# define MAX_SIZE			256
 # define BUFFER_SIZE		800000
 # define GNL_BUFFER_SIZE	16
 
@@ -48,7 +48,7 @@ typedef char			t_coin;
 
 typedef struct s_board
 {
-	t_coin	board[MAX_SIZE][MAX_SIZE];
+	t_coin	**board;
 	t_index	col;
 	t_index	row;
 	size_t	n_move;
@@ -62,11 +62,11 @@ typedef struct s_env
 	t_coin	first;
 }			t_env;
 
-typedef	struct s_moves
+typedef struct s_moves
 {
 	t_index	best_index;
 	int		best_score;	
-}	t_moves;
+}			t_moves;
 
 bool	init_board(t_env *e);
 void	init_first_player(t_env *e);
@@ -98,8 +98,8 @@ bool	is_board_full(const t_board *b);
 bool	is_col_full(const t_board *b, const t_index index);
 
 t_index	get_col_height(const t_board *board, t_index col);
-int	get_score(const t_board *b, int index);
-int	score_hor(const t_board *b, t_index index);
-int	score_diag_up(const t_board *b, t_index index);
-int	score_diag_down(const t_board *b, t_index index);
+int		get_score(const t_board *b, int index);
+int		score_hor(const t_board *b, t_index index);
+int		score_diag_up(const t_board *b, t_index index);
+int		score_diag_down(const t_board *b, t_index index);
 #endif
