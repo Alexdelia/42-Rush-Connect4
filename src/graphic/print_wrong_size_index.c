@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 23:56:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:58:24 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 20:12:16 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ bool	print_wrong_size(void)
 	ft_pserc("./connect4 <col> <row>\n\t", C_BOLD);
 	ft_pnerc(DEFAULT_COL, BIMAG);
 	ft_pserc(" <= col < ", C_ITALIC);
-	//ft_pnerc(MAX_SIZE, BIMAG);
-	ft_pserc("infinite until malloc error", BIMAG);
+	ft_pnerc(MAX_SIZE, BIMAG);
+	ft_pserc("\t(limit for malloc and index)", C_ITALIC);
+	//ft_pserc("infinite until malloc error", BIMAG);
 	ft_ps("\n\t");
 	ft_pnerc(DEFAULT_ROW, BIMAG);
 	ft_pserc(" <= row < ", C_ITALIC);
-	//ft_pnerc(MAX_SIZE, BIMAG);
-	ft_pserc("infinite until malloc error", BIMAG);
+	ft_pnerc(MAX_SIZE, BIMAG);
+	ft_pserc("\t(limit for malloc and index)", C_ITALIC);
+	//ft_pserc("infinite until malloc error", BIMAG);
 	ft_ps("\n");
 	return (false);
 }
