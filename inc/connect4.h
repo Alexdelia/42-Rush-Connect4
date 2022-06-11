@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 15:10:18 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:02:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
 # define MAX_SIZE			256
+# define START_BACKTRACK	25
+# define MAX_NODE			100
 # define BUFFER_SIZE		800000
 # define GNL_BUFFER_SIZE	16
 
@@ -45,7 +47,6 @@ typedef struct s_board
 	t_index	col;
 	t_index	row;
 	size_t	n_move;
-	t_coin	first;
 }			t_board;
 
 typedef struct s_env
@@ -53,6 +54,7 @@ typedef struct s_env
 	t_board	b;
 	char	*c_user;
 	char	*c_ai;
+	t_coin	first;
 }			t_env;
 
 bool	init_board(t_env *e);
