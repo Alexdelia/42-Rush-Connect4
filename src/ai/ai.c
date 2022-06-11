@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:23:23 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:34:26 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ static t_index	nathan_ai(t_env *e)
 			break ;
 		}
 		if (curr_score > moves.best_score)
-		{	moves.best_index = i;
+		{
+			moves.best_index = i;
 			moves.best_score = curr_score;
 		}
 		i++;
