@@ -6,39 +6,43 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 20:51:48 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 20:55:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-static void	print_frame_line(t_env *e, const bool n)
+static void	print_frame_number(t_env *e, t_index *col)
 {
-	t_index	col;
 	char	c[2];
 
 	c[1] = '\0';
-	ft_pb(false, C_FRAME);
-	col = -1;
-	while (++col < 2)
-		ft_pb(false, " ");
-	while (n && col < e->b.col + 2 && col < 15)
+	while (*col < e->b.col + 2 && *col < 15)
 	{
-		if (col - 2 < 10)
+		if (*col - 2 < 10)
 		{
-			c[0] = col - 2 + '0';
+			c[0] = *col - 2 + '0';
 			ft_pb(false, c);
 			ft_pb(false, " ");
 		}
 		else
 			ft_pb(false, ". ");
-		col++;
+		*col += 1;
 	}
+	*col += 15;
+	ft_pb(false, "  ");
+}
+
+static void	print_frame_line(t_env *e, const bool n)
+{
+	t_index	col;
+
+	ft_pb(false, C_FRAME);
+	col = -1;
+	while (++col < 2)
+		ft_pb(false, " ");
 	if (n)
-	{
-		col += 15;
-		ft_pb(false, "  ");
-	}
+		print_frame_number(e, &col);
 	while (++col < (e->b.col * COIN_SIZE + 5))
 		ft_pb(false, " ");
 	ft_pb(false, "\033[0m\033[K\n");
