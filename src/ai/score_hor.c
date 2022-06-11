@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   score_hor.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:31:34 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 19:02:04 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:53:23 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	score_hor_right(const t_board *b, t_index index, t_index height)
 
 	i = 1;
 	if (index == b->col
-		|| index + 1 == b->col || b->board[index + 1][height] == 0)
+		|| index + 1 == b->col || index + 2 == b->col || b->board[index + 1][height] == 0)
 		return (0);
 	if (!(b->board[index + 1][height] == b->board[index + 2][height]))
 		return (0);

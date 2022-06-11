@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ai.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:36:48 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:51:17 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static t_index	nathan_ai(t_env *e)
 			moves.best_index = i;
 			break ;
 		}
-		if (curr_score > moves.best_score)
+		if (curr_score > moves.best_score && is_col_full(&e->b, i) == false)
 		{
 			moves.best_index = i;
 			moves.best_score = curr_score;
@@ -77,9 +77,7 @@ static t_index	nathan_ai(t_env *e)
 		i++;
 	}
 	if (moves.best_score <= 0)
-	{
 		return (rand() % e->b.col);
-	}
 	return (moves.best_index);
 }
 
