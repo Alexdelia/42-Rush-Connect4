@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ai.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:54:04 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:05:53 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,13 @@ int	get_score(const t_board *b, int index)
 	score_tab[0] += score_hor(b, index);
 	score_tab[1] += score_diag_up(b, index);
 	score_tab[2] += score_diag_down(b, index);
-	//ajust_tab(score_tab);
-	
-	
+	score_tab[3] += score_down(b, index);
 	for (int i = 0; i < 4; i++)
 	{
 		ft_putstr_fd("\t\t", 2);
 		ft_putnbr_fd(score_tab[i], 2);
 	}
 	score = score_tab[0] + score_tab[1] + score_tab[2] + score_tab[3];
-	//score += score_down(b, index);
 	ft_putstr_fd("\nscore:", 2);
 	ft_putnbr_fd(score, 2);
 	ft_putstr_fd("\n", 2);

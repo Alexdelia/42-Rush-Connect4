@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   connect4.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:01:14 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:06:16 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ int		get_score(const t_board *b, int index);
 int		score_hor(const t_board *b, t_index index);
 int		score_diag_up(const t_board *b, t_index index);
 int		score_diag_down(const t_board *b, t_index index);
+int		score_down(const t_board *b, t_index index);
 #endif

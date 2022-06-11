@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:48:53 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 18:26:24 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 19:03:43 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	score_diag_down_right(const t_board *b, t_index index, t_index height
 	if (b->board[index + 1][height - 1] == AI)
 		return (20);
 	else if (b->board[index + 1][height - 1] == USER)
-		return (16);
+		return (15);
 	return (0);
 }
 
