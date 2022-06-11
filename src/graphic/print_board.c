@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_board.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 20:33:45 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 20:51:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,27 @@ static void	print_frame_line(t_env *e, const bool n)
 	c[1] = '\0';
 	ft_pb(false, C_FRAME);
 	col = -1;
-	while (++col < (e->b.col + 4) * COIN_SIZE)
+	while (++col < 2)
+		ft_pb(false, " ");
+	while (n && col < e->b.col + 2 && col < 15)
 	{
-		if (n && col >= 2 && col < e->b.col + 2 && col < 15)
+		if (col - 2 < 10)
 		{
-			if (col - 2 < 10)
-			{
-				c[0] = col - 2 + '0';
-				ft_pb(false, c);
-				ft_pb(false, " ");
-			}
-			else
-				ft_pb(false, ". ");
+			c[0] = col - 2 + '0';
+			ft_pb(false, c);
+			ft_pb(false, " ");
 		}
 		else
-			ft_pb(false, " ");
+			ft_pb(false, ". ");
+		col++;
 	}
+	if (n)
+	{
+		col += 15;
+		ft_pb(false, "  ");
+	}
+	while (++col < (e->b.col * COIN_SIZE + 5))
+		ft_pb(false, " ");
 	ft_pb(false, "\033[0m\033[K\n");
 }
 
