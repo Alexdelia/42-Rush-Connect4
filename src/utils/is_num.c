@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 22:14:10 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 22:27:37 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 bool	is_num(const char *n)
 {

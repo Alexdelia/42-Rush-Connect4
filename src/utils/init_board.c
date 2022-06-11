@@ -6,11 +6,20 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:58:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 22:03:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:57:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
+
+void	init_order(t_env *e)
+{
+	t_index	i;
+
+	i = -1;
+	while (++i < e->b.col)
+		g_order[i] = e->b.col / 2 + (1 - 2 * (i % 2)) * (i + 1) / 2;
+}
 
 bool	init_board(t_env *e)
 {
@@ -34,5 +43,6 @@ bool	init_board(t_env *e)
 			e->b.board[col][row] = NONE;
 		col++;
 	}
+	init_order(e);
 	return (true);
 }

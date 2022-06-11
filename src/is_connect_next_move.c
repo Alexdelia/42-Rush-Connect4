@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:26:20 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 13:58:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/connect4.h"
+#include "connect4.h"
 
 static bool	horizontal(const t_board *b, const t_index col, const t_index row)
 {

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:10:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 12:02:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 static ssize_t	ft_n(const char *str)
 {

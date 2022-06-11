@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 16:58:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:57:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/connect4.h"
+#include "connect4.h"
 
 static bool	is_winning_move(t_board b, const t_index move, const t_coin player)
 {
@@ -18,7 +18,8 @@ static bool	is_winning_move(t_board b, const t_index move, const t_coin player)
 	return (is_connect(&b, player));
 }
 
-static int	negamax(t_board b, const t_index next_move, int alpha, int beta, const t_coin player, const unsigned short node)
+static int	negamax(t_board b, const t_index next_move, int alpha, int beta,
+	const t_coin player, const unsigned short node)
 {
 	t_index	index;
 	int		score;
@@ -41,12 +42,12 @@ static int	negamax(t_board b, const t_index next_move, int alpha, int beta, cons
 	index = -1;
 	while (++index < b.col)
 	{
-		if (!is_col_full(&b, index))
+		if (!is_col_full(&b, g_order[index]))
 		{
 			if (player == AI)
-				score = -negamax(b, index, -beta, -alpha, USER, node + 1);
+				score = -negamax(b, g_order[index], -beta, -alpha, USER, node + 1);
 			else if (player == USER)
-				score = -negamax(b, index, -beta, -alpha, AI, node + 1);
+				score = -negamax(b, g_order[index], -beta, -alpha, AI, node + 1);
 			if (score >= beta)
 				return (score);
 			if (score > alpha)
@@ -67,30 +68,34 @@ static t_index	init_negamax(t_board b, int alpha, int beta)
 	while (++index < b.col)
 		if (!is_col_full(&b, index) && is_winning_move(b, index, AI))
 			return (index);
-	best_index = b.col;
+	best_index = MAX_SIZE;
 	max = (b.col * b.row - 1 - b.n_move) / 2;
 	if (beta > max)
 		beta = max;
 	index = -1;
 	while (++index < b.col)
 	{
-		if (!is_col_full(&b, index))
+		if (!is_col_full(&b, g_order[index]))
 		{
-			if (best_index == b.col)
-				best_index = index;
-			score = -negamax(b, index, -beta, -alpha, USER, 0);
+			if (best_index == MAX_SIZE)
+				best_index = g_order[index];
+			score = -negamax(b, g_order[index], -beta, -alpha, USER, 0);
 			if (score >= beta)
 				return (best_index);
 			if (score > alpha)
 			{
 				alpha = score;
-				best_index = index;
+				best_index = g_order[index];
 				/*ft_ps("\r");
 				ft_pn(alpha);
 				ft_ps("  ");*/
 			}
 		}
 	}
+	ft_pner(score);
+	ft_pser("\n");
+	ft_pner(index);
+	ft_pser("\n\n");
 	return (best_index);
 }
 

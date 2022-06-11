@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 13:15:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 16:21:49 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/connect4.h"
+#include "connect4.h"
 
 int	play(t_env *e)
 {

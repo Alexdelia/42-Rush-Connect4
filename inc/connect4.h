@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:02:49 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:58:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdbool.h>
 # include <time.h>
 
-# include "../libft/inc/libft.h"
+# include "libft.h"
 
 # define DEFAULT_COL	7
 # define DEFAULT_ROW	6
@@ -31,8 +31,8 @@
 # define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
 # define MAX_SIZE			256
-# define START_BACKTRACK	25
-# define MAX_NODE			100
+# define START_BACKTRACK	10
+# define MAX_NODE			7
 # define BUFFER_SIZE		800000
 # define GNL_BUFFER_SIZE	16
 
@@ -56,6 +56,8 @@ typedef struct s_env
 	char	*c_ai;
 	t_coin	first;
 }			t_env;
+
+extern t_index	g_order[MAX_SIZE];
 
 bool	init_board(t_env *e);
 void	init_first_player(t_env *e);

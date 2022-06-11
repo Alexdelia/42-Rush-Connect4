@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:34:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/09 12:32:57 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 int	error(const char *str, const int ret)
 {

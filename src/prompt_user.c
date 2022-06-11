@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 13:02:48 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/connect4.h"
+#include "connect4.h"
 
 static bool	is_index_in_range(const t_index index, const t_index size)
 {

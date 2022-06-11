@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 10:33:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:19:14 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 static void	user_win(void)
 {

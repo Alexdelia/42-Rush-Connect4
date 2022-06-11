@@ -6,11 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 15:09:51 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:50:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/connect4.h"
+#include "connect4.h"
+
+t_index	g_order[MAX_SIZE];
 
 bool	init(t_env *e, const int ac, char **av)
 {
