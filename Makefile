@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+         #
+#    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/06/11 19:05:23 by adelille         ###   ########.fr        #
+#    Updated: 2022/06/11 19:32:47 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ INC =		-I./inc/ $(LIBINC)
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
 #SRCS =		$(wildcard $(SRCSPATH)*.c) $(wildcard $(SRCSPATH)**/*.c)
-SRCS =		$(call rwildcard,$(SRCSPATH),*c)
+SRCS =		$(call rwildcard,$(SRCSPATH),*.c)
 SRCSNAME =	$(subst $(SRCSPATH), , $(SRCS))
 
 OBJSNAME =	$(SRCSNAME:.c=.o)
