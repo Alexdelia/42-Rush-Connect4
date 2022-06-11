@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:51:17 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 21:00:19 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,15 @@ static t_index	nathan_ai(t_env *e)
 		i++;
 	}
 	if (moves.best_score <= 0)
-		return (rand() % e->b.col);
+	{
+		i = -1;
+		while (i == -1 || (!(is_col_full(&e->b, i))))
+		{
+			i = rand() % e->b.col;
+			if (!is_col_full(&e->b, i))
+				return (i);
+		}
+	}
 	return (moves.best_index);
 }
 
@@ -86,7 +94,9 @@ int	get_score(const t_board *b, int index)
 	int	score;
 	int	col_height;
 	int	score_tab[4];
-
+	
+	if (is_col_full(b, index) == true)
+		return (0);
 	score = 0;
 	ft_memset(score_tab, 0, 16);
 	col_height = get_col_height(b, index);
