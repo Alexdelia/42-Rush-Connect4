@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 00:07:36 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:00:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	print_wrong_size(void);
 void	free_board(t_coin **board, const size_t size);
 
 int		error(const char *str, const int ret);
-char	*gnl(size_t *size, bool f);
+char	*gnl(size_t *size, const bool f);
 char	*ft_strjoin_n_free(char *s1, size_t *size1,
 			const char *s2, const size_t size2);
 char	*ft_strdup_n(const char *src, const size_t size);

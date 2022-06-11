@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 11:38:32 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 11:55:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,16 @@ bool	prompt_user(t_env *e)
 	t_index	index;
 
 	//if (is_board_empty(&e->b))
-		ft_psc("\nEnter index of your coin ", C_BOLD);
+	ft_psc("\nEnter index of your coin ", C_BOLD);
 	//r = read(STDIN_FILENO, buffer, r);	// buggy
 	buffer = gnl(&r, false);
-	/*if (r == 0)
+	if (!buffer || r == 0)
 	{
 		free(buffer);
+		buffer = NULL;
 		ft_pserc("r == 0\n", C_RED);
 		return (false);
-	}*/
+	}
 	if (!is_num(buffer))
 	{
 		ft_pserc("\"", C_RED);
@@ -52,6 +53,7 @@ bool	prompt_user(t_env *e)
 	}
 	index = atoi(buffer);
 	free(buffer);
+	buffer = NULL;
 	if (!is_index_in_range(index, e->b.col))
 		return (false);
 	return (add_coin(&e->b, index, USER)); //
