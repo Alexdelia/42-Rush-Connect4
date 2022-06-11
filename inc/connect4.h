@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 12:00:03 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:49:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,13 @@ char	*gnl(size_t *size, const bool f);
 char	*ft_strjoin_n_free(char *s1, size_t *size1,
 			const char *s2, const size_t size2);
 char	*ft_strdup_n(const char *src, const size_t size);
+
+bool	is_connect(const t_board *b, const t_coin player);
+bool	is_connect_next_move(const t_board *b, const t_index move);
+
 bool	is_num(const char *n);
 bool	is_board_empty(const t_board *b);
 bool	is_board_full(const t_board *b);
 bool	is_col_full(const t_board *b, const t_index index);
-int		is_connect(const t_board *b, const t_coin player);
 
 #endif
