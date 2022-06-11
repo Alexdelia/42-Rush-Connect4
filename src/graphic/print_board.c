@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 21:17:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 21:19:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static void	print_frame_number(t_env *e, t_index *col)
 		if (*col - 2 < 10)
 		{
 			c[0] = *col - 2 + '0';
-			ft_pb(false, c);
 			ft_pb(false, " ");
+			ft_pb(false, c);
 		}
 		else
-			ft_pb(false, ". ");
+			ft_pb(false, " .");
 		*col += 1;
 	}
 	*col += 15;

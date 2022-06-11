@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:46:08 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 21:22:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ bool	prompt_user(t_env *e)
 	t_index	index;
 
 	//if (is_board_empty(&e->b))
-	ft_psc("\nEnter index of your coin ", C_BOLD);
+	ft_ps("\n  ");
+	ft_ps(e->c_user);
+	ft_psc(" ➜ ", C_BOLD);
 	buffer = gnl(&r, false);
 	if (!buffer || r == 0)
 		return (no_input(buffer));
