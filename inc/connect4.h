@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   connect4.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 20:34:31 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 21:17:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,14 @@
 # define AI				2
 
 # define COIN_EMPTY		"  "
-# define COIN_USER		"● "/*"⬤"*//*"⚉"*/
-# define COIN_AI		"✘ "/*"⬤"*//*"⚇"*/
+# define COIN_USER		""/*"● "*//*"⬤"*//*"⚉"*/
+# define COIN_AI		""/*"✘ "*//*"⬤"*//*"⚇"*/
 # define COIN_SIZE		2
+
+/*# define COIN_RED		C_RED
+# define COIN_YELLOW	C_YELLOW*/
+# define COIN_RED		"🔴"
+# define COIN_YELLOW	"🟡"
 
 # define MAX_SIZE			USHRT_MAX
 # define BUFFER_SIZE		800000
@@ -70,6 +75,7 @@ typedef struct s_moves
 }			t_moves;
 
 bool	init_board(t_env *e);
+bool	init_col_row(t_env *e, char **av);
 void	init_first_player(t_env *e);
 
 int		play(t_env *e);
