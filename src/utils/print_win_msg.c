@@ -6,25 +6,25 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 10:33:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 20:27:13 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 static void	user_win(void)
 {
-	ft_pser("you win\n");
+	ft_ps("you win\n");
 }
 
 static void	ai_win(void)
 {
-	ft_pser("you lose\n");
+	ft_ps("you lose\n");
 }
 
 static void	board_full(void)
 {
-	ft_pser("board is full\n");
+	ft_ps("board is full\n");
 }
 
 void	print_win_msg(t_env *e, const int who)

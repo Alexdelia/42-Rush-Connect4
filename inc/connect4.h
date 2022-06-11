@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:16:02 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 18:30:12 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <unistd.h>
 # include <stdbool.h>
-# include <time.h>	//
+# include <time.h>
 
-# include "../libft/inc/libft.h"
+# include "libft.h"
 
 # define DEFAULT_COL	7
 # define DEFAULT_ROW	6
@@ -28,7 +28,7 @@
 
 # define COIN_EMPTY		" "
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
-# define COIN_AI		"●"/*"⬤"*//*"⚇"*/
+# define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
 # define MAX_SIZE			256
 # define BUFFER_SIZE		800000
@@ -59,6 +59,7 @@ typedef struct s_env
 	t_board	b;
 	char	*c_user;
 	char	*c_ai;
+	t_coin	first;
 }			t_env;
 
 typedef	struct s_moves
@@ -68,6 +69,7 @@ typedef	struct s_moves
 }	t_moves;
 
 bool	init_board(t_env *e);
+void	init_first_player(t_env *e);
 
 int		play(t_env *e);
 bool	prompt_user(t_env *e);
@@ -77,19 +79,23 @@ bool	add_coin(t_board *b, const t_index index, const t_coin player);
 void	print_board(t_env *e);
 void	print_win_msg(t_env *e, const int who);
 bool	print_wrong_size(void);
+bool	print_wrong_index(const char *buffer);
+int		print_col_full(const t_index index);
 
 void	free_board(t_coin **board, const size_t size);
 
 int		error(const char *str, const int ret);
-char	*gnl(size_t *size, bool f);
+char	*gnl(size_t *size, const bool f);
 char	*ft_strjoin_n_free(char *s1, size_t *size1,
 			const char *s2, const size_t size2);
 char	*ft_strdup_n(const char *src, const size_t size);
+
+bool	is_connect(const t_board *b, const t_coin player);
+
 bool	is_num(const char *n);
 bool	is_board_empty(const t_board *b);
 bool	is_board_full(const t_board *b);
 bool	is_col_full(const t_board *b, const t_index index);
-int		is_connect(const t_board *b, const t_coin player);
 
 void	nathan_ai(t_env *e);
 t_index	get_col_height(const t_board *board, t_index col);

@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_next_prime_ul.c                                 :+:      :+:    :+:   */
+/*   init_first_player.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:10:35 by adelille          #+#    #+#             */
-/*   Updated: 2021/11/04 14:05:30 by adelille         ###   ########.fr       */
+/*   Created: 2022/06/11 14:43:40 by adelille          #+#    #+#             */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "connect4.h"
 
-int	ft_prev_prime(int n)
+void	init_first_player(t_env *e)
 {
-	if (n <= 2)
-		return (INT_MAX);
-	if (n % 2 == 0)
-		n--;
+	if (rand() % 2)
+	{
+		e->first = USER;
+		e->c_user = C_YELLOW;
+		e->c_ai = C_RED;
+	}
 	else
-		n -= 2;
-	while (ft_is_prime(n) == false)
-		n -= 2;
-	return (n);
-}
-
-unsigned long	ft_prev_prime_ul(unsigned long n)
-{
-	if (n <= 2)
-		return (0);
-	if (n % 2 == 0)
-		n--;
-	else
-		n -= 2;
-	while (ft_is_prime(n) == false)
-		n -= 2;
-	return (n);
+	{
+		e->first = AI;
+		e->c_user = C_RED;
+		e->c_ai = C_YELLOW;
+	}
 }

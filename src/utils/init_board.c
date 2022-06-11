@@ -6,12 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:58:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 22:03:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 18:10:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
-
+#include "connect4.h"
 bool	init_board(t_env *e)
 {
 	t_index	col;

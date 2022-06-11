@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:10:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 11:14:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 static ssize_t	ft_n(const char *str)
 {
@@ -56,7 +56,7 @@ static char	*reading(char *buffer, size_t *index, char *line, size_t *size)
 			*index = 0;
 		}
 	}
-	free(buffer);
+	//free(buffer);
 	free(line);
 	return (NULL);
 }
@@ -68,7 +68,7 @@ static char	*gnl_free(char *buffer, char *line)
 	return (NULL);
 }
 
-char	*gnl(size_t *size, bool f)
+char	*gnl(size_t *size, const bool f)
 {
 	static char		*buffer = NULL;
 	static size_t	index = 0;

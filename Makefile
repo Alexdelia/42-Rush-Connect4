@@ -6,13 +6,13 @@
 #    By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/06/11 12:54:25 by nguiard          ###   ########.fr        #
+#    Updated: 2022/06/11 18:30:08 by nguiard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	connect4
 CC =	cc
-//CC =	clang
+#CC =	clang
 RM = 	rm -rf
 
 CFLAGS =	-Wall -Werror -Wextra
@@ -50,14 +50,14 @@ CLR =	$(shell tput el 1)
 
 LIBPATH =	./libft/
 LIBNAME =	$(LIBPATH)libft.a
-LIBINC =	-I$(LIBPATH)
+LIBINC =	-I$(LIBPATH)inc/
 
 # **************************************************************************** #
 #	SRCS	#
 
 SRCSPATH =	./src/
 OBJSPATH =	./obj/
-INC =		./inc/
+INC =		-I./inc/ $(LIBINC)
 
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
@@ -84,7 +84,7 @@ endef
 
 $(OBJSPATH)%.o: $(SRCSPATH)%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(LKFLAGS) -I$(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(LKFLAGS) $(INC) -c $< -o $@
 	@printf "$(B)$(GRE)█$(D)"
 
 

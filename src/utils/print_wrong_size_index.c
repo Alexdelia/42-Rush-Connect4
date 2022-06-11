@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_wrong_size.c                                 :+:      :+:    :+:   */
+/*   print_wrong_size_index.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 23:56:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 00:10:26 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 18:26:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/connect4.h"
+#include "connect4.h"
 
 bool	print_wrong_size(void)
 {
@@ -26,4 +26,21 @@ bool	print_wrong_size(void)
 	ft_pnerc(MAX_SIZE, BIMAG);
 	ft_ps("\n");
 	return (false);
+}
+
+bool	print_wrong_index(const char *buffer)
+{
+	ft_pserc("\"", C_RED);
+	ft_pserc(buffer, C_MAGENTA);
+	ft_pserc("\" is not a valid index\n", C_RED);
+	return (false);
+}
+
+int	print_col_full(const t_index index)
+{
+	ft_pser(C_BOLD);
+	ft_pserc("AI tried to insert coin on full col (", C_RED);
+	ft_pnerc(index, C_MAGENTA);
+	ft_pserc(")\n", C_RED);
+	return (1);
 }
