@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:26:20 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 12:48:42 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 13:58:41 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,16 @@ static bool	not_stonk_diagonal(const t_board *b,
 	return (false);
 }
 
-bool	is_connect_next_move(const t_board *b, const t_index move)
+bool	is_connect_next_move(t_board b, const t_index move, const t_coin player)
 {
 	t_index	r;
 
-	r = b->row - 1;
-	while (r > 0 && b->board[move][r] == NONE)
+	add_coin(&b, move, player);
+	r = b.row - 1;
+	while (r > 0 && b.board[move][r] != player)
 		r++;
-	return (horizontal(b, move, r)
-		|| vertical(b, move, r)
-		|| stonk_diagonal(b, move, r)
-		|| not_stonk_diagonal(b, move, r));
+	return (horizontal(&b, move, r)
+		|| vertical(&b, move, r)
+		|| stonk_diagonal(&b, move, r)
+		|| not_stonk_diagonal(&b, move, r));
 }
