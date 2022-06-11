@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 23:56:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:46:03 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 18:26:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,13 @@ bool	print_wrong_index(const char *buffer)
 	ft_pserc(buffer, C_MAGENTA);
 	ft_pserc("\" is not a valid index\n", C_RED);
 	return (false);
+}
+
+int	print_col_full(const t_index index)
+{
+	ft_pser(C_BOLD);
+	ft_pserc("AI tried to insert coin on full col (", C_RED);
+	ft_pnerc(index, C_MAGENTA);
+	ft_pserc(")\n", C_RED);
+	return (1);
 }

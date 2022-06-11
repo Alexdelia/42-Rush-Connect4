@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:58:49 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 18:27:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@
 # define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
 # define MAX_SIZE			256
-# define START_BACKTRACK	10
-# define MAX_NODE			7
 # define BUFFER_SIZE		800000
 # define GNL_BUFFER_SIZE	16
 
@@ -57,8 +55,6 @@ typedef struct s_env
 	t_coin	first;
 }			t_env;
 
-extern t_index	g_order[MAX_SIZE];
-
 bool	init_board(t_env *e);
 void	init_first_player(t_env *e);
 
@@ -71,6 +67,7 @@ void	print_board(t_env *e);
 void	print_win_msg(t_env *e, const int who);
 bool	print_wrong_size(void);
 bool	print_wrong_index(const char *buffer);
+int		print_col_full(const t_index index);
 
 void	free_board(t_coin **board, const size_t size);
 
@@ -81,7 +78,6 @@ char	*ft_strjoin_n_free(char *s1, size_t *size1,
 char	*ft_strdup_n(const char *src, const size_t size);
 
 bool	is_connect(const t_board *b, const t_coin player);
-bool	is_connect_next_move(t_board b, const t_index move, const t_coin player);
 
 bool	is_num(const char *n);
 bool	is_board_empty(const t_board *b);
