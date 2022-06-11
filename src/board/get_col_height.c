@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_col_height.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:43:02 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 12:46:28 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 23:13:50 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-t_index	get_col_height(const t_board *board, t_index col)
+t_index	get_col_height(const t_board *board, const t_index col)
 {
 	t_index	i;
 

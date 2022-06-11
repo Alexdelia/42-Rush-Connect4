@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:48:53 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 23:10:12 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:16:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	score_diag_down_left(const t_board *b,
 		|| index - 2 == 0 || height - 2 == 0)
 		return (0);
 	if (!(b->board[index - 1][height - 1] == b->board[index - 2][height - 2]))
-		return (0);	
+		return (0);
 	if (b->board[index - 1][height - 1] == AI)
 		return (20);
 	else if (b->board[index - 1][height - 1] == USER)

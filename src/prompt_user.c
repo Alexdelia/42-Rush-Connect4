@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 21:22:48 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:18:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ bool	prompt_user(t_env *e)
 	size_t	r;
 	t_index	index;
 
-	//if (is_board_empty(&e->b))
 	ft_ps("\n  ");
 	ft_ps(e->c_user);
 	ft_psc(" ➜ ", C_BOLD);
@@ -59,5 +58,5 @@ bool	prompt_user(t_env *e)
 	free(buffer);
 	if (!is_index_in_range(index, e->b.col))
 		return (false);
-	return (add_coin(&e->b, index, USER)); //
+	return (add_coin(&e->b, index, USER));
 }

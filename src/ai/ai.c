@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 23:03:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:15:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ai(t_env *e)
 	if (!forced(&e->b, &index))
 		index = nathan_ai(e);
 	if (!add_coin(&e->b, index, AI))
-		exit(print_col_full(index));// tmp
+		exit(print_col_full(index));
 }
 
 static t_index	nathan_ai(t_env *e)

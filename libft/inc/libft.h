@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:47:54 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:56:22 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:18:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ ssize_t			ft_pnerc(int nbr, const char *color);
 void			ft_pb(const bool w, const char *str);
 void			ft_pb_s(const bool w, const char *str, const size_t size);
 size_t			ft_pb_f(const bool w, const char *str);
-
 
 int				ft_strcmp(const char *s1, const char *s2);
 size_t			ft_strcpy(char *dst, const char *src);

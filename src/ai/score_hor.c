@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:31:34 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 23:07:54 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:14:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	score_hor_right(const t_board *b,
 static int	score_hor_left(const t_board *b,
 				const t_index index, const t_index height);
 
-int	score_hor(const t_board *b, t_index index)
+int	score_hor(const t_board *b, const t_index index)
 {
 	t_index	height;
 	int		right;
