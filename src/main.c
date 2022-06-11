@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:51:11 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:58:07 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ static bool	init_col_row(t_env *e, char **av)
 
 static bool	init(t_env *e, const int ac, char **av)
 {
-	if (ac == 3 && !init_col_row(e, av))
-		return (false);
+	if (ac == 3)
+	{
+		if (!init_col_row(e, av))
+			return (false);
+	}
 	else
 	{
 		ft_psc("No size specified, using default\n", C_BOLD);
