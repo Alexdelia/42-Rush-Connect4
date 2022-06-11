@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ai.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:35:00 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 18:45:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,6 @@ static bool	is_winning_move(t_board b, const t_index move, const t_coin player)
 	add_coin(&b, move, player);
 	return (is_connect(&b, player));
 }
-
-//static t_index	solve(const t_board *b)
-//{
-//	t_index	index;
-
-//	index = rand() % b->col;
-//	while (is_col_full(b, index))
-//		index = rand() % b->col;
-
-//	return (index);
-//}
 
 static t_index	forced(const t_board *b)
 {
@@ -45,23 +34,6 @@ static t_index	forced(const t_board *b)
 		return ((t_index)(b->col / 2));
 	return (MAX_SIZE);
 }
-
-//void	ai(t_env *e)
-//{
-//	size_t	index;
-
-//	srand(time(NULL));
-//	index = rand() % e->b.col;
-//	while (is_col_full(&e->b, index))
-//		index = rand() % e->b.col;
-
-//	if (!add_coin(&e->b, index, AI))
-//	{
-//		ft_pser(C_BOLD);
-//		ft_pserc("AI tried to insert coin on full col\n", RED);
-//		exit(1);	// tmp
-//	}
-//}
 
 static t_index	nathan_ai(t_env *e);
 
