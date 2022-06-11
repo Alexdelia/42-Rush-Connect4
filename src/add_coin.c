@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 21:04:40 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/10 21:05:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 15:00:00 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ bool	add_coin(t_board *b, const t_index index, const t_coin player)
 		if (b->board[index][i] == NONE)
 		{
 			b->board[index][i] = player;
+			b->n_move++;
 			return (true);
 		}
 		i++;

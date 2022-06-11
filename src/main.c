@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:27:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 13:50:56 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 15:09:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ bool	init(t_env *e, const int ac, char **av)
 	if (!init_board(e))
 		return (false);
 	e->b.n_move = 0;
-	// choose color
-	e->c_user = C_RED;
-	e->c_ai = C_YELLOW;
 	srand(time(NULL));
+	init_first_player(e);
 	return (true);
 }
 
