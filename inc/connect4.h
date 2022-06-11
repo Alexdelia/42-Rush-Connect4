@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:30:12 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 18:34:32 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ bool	is_board_empty(const t_board *b);
 bool	is_board_full(const t_board *b);
 bool	is_col_full(const t_board *b, const t_index index);
 
-void	nathan_ai(t_env *e);
 t_index	get_col_height(const t_board *board, t_index col);
 int	get_score(const t_board *b, int index);
 int	score_hor(const t_board *b, t_index index);

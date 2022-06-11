@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:30:58 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 18:35:00 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ static bool	is_winning_move(t_board b, const t_index move, const t_coin player)
 	return (is_connect(&b, player));
 }
 
-static t_index	solve(const t_board *b)
-{
-	t_index	index;
+//static t_index	solve(const t_board *b)
+//{
+//	t_index	index;
 
-	index = rand() % b->col;
-	while (is_col_full(b, index))
-		index = rand() % b->col;
+//	index = rand() % b->col;
+//	while (is_col_full(b, index))
+//		index = rand() % b->col;
 
-	return (index);
-}
+//	return (index);
+//}
 
 static t_index	forced(const t_board *b)
 {
@@ -63,20 +63,21 @@ static t_index	forced(const t_board *b)
 //	}
 //}
 
+static t_index	nathan_ai(t_env *e);
+
 void	ai(t_env *e)
 {
-	add_coin(&e->b, moves.best_index, AI);
 	t_index	index;
 
 	index = forced(&e->b);
 	if (index == MAX_SIZE)
-		index = nathan_ai(&e->b);
+		index = nathan_ai(e);
 
 	if (!add_coin(&e->b, index, AI))
 		exit(print_col_full(index));// tmp
 }
 
-void	nathan_ai(t_env *e)
+static t_index	nathan_ai(t_env *e)
 {
 	t_moves	moves;
 	int		i;
@@ -103,9 +104,9 @@ void	nathan_ai(t_env *e)
 	if (moves.best_score <= 0)
 	{
 		ft_putstr_fd("\nmoves.best_score <= 0: random\n", 2);
-		add_coin(&e->b, rand() % e->b.col, AI);
-		return ;
+		return (rand() % e->b.col);
 	}
+	return (moves.best_index);
 }
 
 int	get_score(const t_board *b, int index)
