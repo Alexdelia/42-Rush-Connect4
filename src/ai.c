@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ai.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 19:23:23 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 19:34:07 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,8 @@ static t_index	nathan_ai(t_env *e)
 		}
 		i++;
 	}
-	ft_putstr_fd("\n--------------------", 2);
 	if (moves.best_score <= 0)
 	{
-		ft_putstr_fd("\nmoves.best_score <= 0: random\n", 2);
 		return (rand() % e->b.col);
 	}
 	return (moves.best_index);
@@ -90,26 +88,13 @@ int	get_score(const t_board *b, int index)
 	int	col_height;
 	int	score_tab[4];
 
-	// check si le pion qu'on met win
 	score = 0;
-	ft_putstr_fd("\ncolone:", 2);
-	ft_putnbr_fd(index, 2);
 	ft_memset(score_tab, 0, 16);
-
-
 	col_height = get_col_height(b, index);
 	score_tab[0] += score_hor(b, index);
 	score_tab[1] += score_diag_up(b, index);
 	score_tab[2] += score_diag_down(b, index);
 	score_tab[3] += score_down(b, index);
-	for (int i = 0; i < 4; i++)
-	{
-		ft_putstr_fd("\t\t", 2);
-		ft_putnbr_fd(score_tab[i], 2);
-	}
 	score = score_tab[0] + score_tab[1] + score_tab[2] + score_tab[3];
-	ft_putstr_fd("\nscore:", 2);
-	ft_putnbr_fd(score, 2);
-	ft_putstr_fd("\n", 2);
 	return (score);
 }
