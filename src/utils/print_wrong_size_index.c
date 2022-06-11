@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_wrong_size.c                                 :+:      :+:    :+:   */
+/*   print_wrong_size_index.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 23:56:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 00:10:26 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 12:57:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,13 @@ bool	print_wrong_size(void)
 	ft_pserc(" <= row < ", C_ITALIC);
 	ft_pnerc(MAX_SIZE, BIMAG);
 	ft_ps("\n");
+	return (false);
+}
+
+bool	print_wrong_index(const char *buffer)
+{
+	ft_pserc("\"", C_RED);
+	ft_pserc(buffer, C_MAGENTA);
+	ft_pserc("\" is not a valid index\n", C_RED);
 	return (false);
 }

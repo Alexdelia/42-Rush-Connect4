@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 13:15:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 00:14:45 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 13:03:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	play(t_env *e)
 		ai(e);
 		full = is_board_full(&e->b);
 	}
-	return (!full * AI); //
+	return (!full * AI);
 }

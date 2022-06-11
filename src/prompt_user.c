@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 11:55:46 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 13:02:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ static bool	is_index_in_range(const t_index index, const t_index size)
 	return (true);
 }
 
+static bool	no_input(char *buffer)
+{
+	free(buffer);
+	buffer = NULL;
+	ft_pserc("no input\n", C_YELLOW);
+	return (false);
+}
+
 bool	prompt_user(t_env *e)
 {
 	char	*buffer;
@@ -36,24 +44,17 @@ bool	prompt_user(t_env *e)
 
 	//if (is_board_empty(&e->b))
 	ft_psc("\nEnter index of your coin ", C_BOLD);
-	//r = read(STDIN_FILENO, buffer, r);	// buggy
 	buffer = gnl(&r, false);
 	if (!buffer || r == 0)
-	{
-		free(buffer);
-		buffer = NULL;
-		ft_pserc("r == 0\n", C_RED);
-		return (false);
-	}
+		return (no_input(buffer));
 	if (!is_num(buffer))
 	{
-		ft_pserc("\"", C_RED);
-		ft_pserc(buffer, C_MAGENTA);
-		ft_pserc("\" is not a valid index\n", C_RED);
+		print_wrong_index(buffer);
+		free(buffer);
+		return (false);
 	}
 	index = atoi(buffer);
 	free(buffer);
-	buffer = NULL;
 	if (!is_index_in_range(index, e->b.col))
 		return (false);
 	return (add_coin(&e->b, index, USER)); //
