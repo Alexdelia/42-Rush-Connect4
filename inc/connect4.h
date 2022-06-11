@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   connect4.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 20:13:06 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 20:34:31 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # define USER			1
 # define AI				2
 
-# define COIN_EMPTY		" "
-# define COIN_USER		"●"/*"⬤"*//*"⚉"*/
-# define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
-# define COIN_SIZE		1
+# define COIN_EMPTY		"  "
+# define COIN_USER		"● "/*"⬤"*//*"⚉"*/
+# define COIN_AI		"✘ "/*"⬤"*//*"⚇"*/
+# define COIN_SIZE		2
 
 # define MAX_SIZE			USHRT_MAX
 # define BUFFER_SIZE		800000

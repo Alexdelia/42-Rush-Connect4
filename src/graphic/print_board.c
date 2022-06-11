@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_board.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:41:47 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 20:26:16 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 20:33:45 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	print_frame_line(t_env *e, const bool n)
 	c[1] = '\0';
 	ft_pb(false, C_FRAME);
 	col = -1;
-	while (++col < e->b.col + 4)
+	while (++col < (e->b.col + 4) * COIN_SIZE)
 	{
 		if (n && col >= 2 && col < e->b.col + 2 && col < 15)
 		{
@@ -28,9 +28,10 @@ static void	print_frame_line(t_env *e, const bool n)
 			{
 				c[0] = col - 2 + '0';
 				ft_pb(false, c);
+				ft_pb(false, " ");
 			}
 			else
-				ft_pb(false, ".");
+				ft_pb(false, ". ");
 		}
 		else
 			ft_pb(false, " ");
