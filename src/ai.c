@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 00:04:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 17:31:48 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 18:15:45 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@
 
 void	ai(t_env *e)
 {
+	nathan_ai(e);
+}
+
+void	nathan_ai(t_env *e)
+{
 	t_moves	moves;
 	int		i;
 	int		curr_score;
 
-	//Si on est au debut du jeu, pion random random
 	i = 0;
 	moves.best_index = 0;
 	moves.best_score = -1;
@@ -51,7 +55,6 @@ void	ai(t_env *e)
 		{	moves.best_index = i;
 			moves.best_score = curr_score;
 		}
-		ft_putnbr_fd(i, 2);
 		i++;
 	}
 	ft_putstr_fd("\n--------------------", 2);
@@ -63,23 +66,6 @@ void	ai(t_env *e)
 	}
 	add_coin(&e->b, moves.best_index, AI);
 }
-
-//void	score_tab(int *tab)
-//{
-//	int	max;
-//	int i;
-
-//	i = 4;
-//	max = 0;
-//	while (i < 4)
-//	{
-//		if (tab[i] > max)
-//			max = tab[i];
-//		i++;
-//	}
-//	i = 0;
-//	while ()
-//}
 
 int	get_score(const t_board *b, int index)
 {
@@ -97,7 +83,7 @@ int	get_score(const t_board *b, int index)
 	col_height = get_col_height(b, index);
 	score_tab[0] += score_hor(b, index);
 	score_tab[1] += score_diag_up(b, index);
-	//score_tab[2] += score_diag_down(b, index);
+	score_tab[2] += score_diag_down(b, index);
 	//ajust_tab(score_tab);
 	
 	

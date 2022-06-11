@@ -6,7 +6,7 @@
 /*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:31:34 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 17:50:14 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/11 18:19:23 by nguiard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static int	score_hor_right(const t_board *b, t_index index, t_index height)
 	if (!(b->board[index + 1][height] == b->board[index + 2][height]))
 		return (0);
 	if (b->board[index + 1][height] == AI)
-		return (10);
+		return (20);
 	else if (b->board[index + 1][height] == USER)
-		return (15);
+		return (16);
 	return (0);
 }
 
@@ -55,7 +55,7 @@ static int	score_hor_left(const t_board *b, t_index index, t_index height)
 	if (!(b->board[index - 1][height] == b->board[index - 2][height]))
 		return (0);	
 	if (b->board[index - 1][height] == AI)
-		return (10);
+		return (20);
 	else if (b->board[index - 1][height] == USER)
 		return (15);
 	return (0);
