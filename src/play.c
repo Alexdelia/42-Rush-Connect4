@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 13:15:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 18:45:51 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:11:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	play(t_env *e)
 		&& !is_connect(&e->b, AI) && !is_connect(&e->b, USER))
 	{
 		print_board(e);
-		if (e->b.n_move % 2 + 1 == e->first)
+		if ((int)(e->b.n_move % 2 + 1) == (int)e->first)
 		{
 			legal = false;
 			while (!legal)

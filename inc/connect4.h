@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 21:17:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:04:07 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ bool	is_board_full(const t_board *b);
 bool	is_col_full(const t_board *b, const t_index index);
 
 t_index	get_col_height(const t_board *board, t_index col);
-int		get_score(const t_board *b, int index);
+int		get_score(const t_board *b, t_index index);
 int		score_hor(const t_board *b, t_index index);
-int		score_diag_up(const t_board *b, t_index index);
-int		score_diag_down(const t_board *b, t_index index);
+int		score_diag_up(const t_board *b, const t_index index);
+int		score_diag_down(const t_board *b, const t_index index);
 int		score_down(const t_board *b, t_index index);
 #endif

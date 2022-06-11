@@ -6,16 +6,18 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:53:19 by nguiard           #+#    #+#             */
-/*   Updated: 2022/06/11 19:19:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:10:15 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "connect4.h"
+#include "connect4.h"
 
-static int	score_diag_up_right(const t_board *b, t_index index, t_index height);
-static int	score_diag_up_left(const t_board *b, t_index index, t_index height);
+static int	score_diag_up_right(const t_board *b,
+				const t_index index, const t_index height);
+static int	score_diag_up_left(const t_board *b,
+				const t_index index, const t_index height);
 
-int	score_diag_up(const t_board *b, t_index index)
+int	score_diag_up(const t_board *b, const t_index index)
 {
 	t_index	height;
 	int		right;
@@ -27,11 +29,9 @@ int	score_diag_up(const t_board *b, t_index index)
 	return (right + left);
 }
 
-static int	score_diag_up_right(const t_board *b, t_index index, t_index height)
+static int	score_diag_up_right(const t_board *b,
+	const t_index index, const t_index height)
 {
-	int	i;
-
-	i = 1;
 	if (index + 2 >= b->col || height + 2 >= b->row)
 		return (0);
 	if (!(b->board[index + 1][height + 1] == b->board[index + 2][height + 2]))
@@ -43,11 +43,9 @@ static int	score_diag_up_right(const t_board *b, t_index index, t_index height)
 	return (0);
 }
 
-static int	score_diag_up_left(const t_board *b, t_index index, t_index height)
+static int	score_diag_up_left(const t_board *b,
+	const t_index index, const t_index height)
 {
-	int	i;
-
-	i = 1;
 	if (index == 0
 		|| index - 1 == 0
 		|| height + 1 == b->row || height == b->row)
