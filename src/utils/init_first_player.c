@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play.c                                             :+:      :+:    :+:   */
+/*   init_first_player.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 13:15:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 15:05:19 by adelille         ###   ########.fr       */
+/*   Created: 2022/06/11 14:43:40 by adelille          #+#    #+#             */
+/*   Updated: 2022/06/11 14:51:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/connect4.h"
+#include "../../inc/connect4.h"
 
-int	play(t_env *e)
+void	init_first_player(t_env *e)
 {
-	bool	legal;
-
-	while (!is_board_full(&e->b)
-		&& !is_connect(&e->b, AI) && !is_connect(&e->b, USER))
+	if (rand() % 2)
 	{
-		print_board(e);
-		if (e->b.n_move % 2 + 1 != e->b.first)
-		{
-			legal = false;
-			while (!legal)
-				legal = prompt_user(e);
-		}
-		else
-			ai(e);
+		e->b.first = USER;
+		e->c_user = C_YELLOW;
+		e->c_ai = C_RED;
 	}
-	if (is_connect(&e->b, AI))
-		return (AI);
-	else if (is_connect(&e->b, USER))
-		return (USER);
-	return (NONE);
+	else
+	{
+		e->b.first = AI;
+		e->c_user = C_RED;
+		e->c_ai = C_YELLOW;
+	}
 }

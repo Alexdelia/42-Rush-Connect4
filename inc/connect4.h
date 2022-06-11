@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:29:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 12:58:51 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/11 14:53:10 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define COIN_EMPTY		" "
 # define COIN_USER		"●"/*"⬤"*//*"⚉"*/
-# define COIN_AI		"●"/*"⬤"*//*"⚇"*/
+# define COIN_AI		"✘"/*"⬤"*//*"⚇"*/
 
 # define MAX_SIZE			256
 # define BUFFER_SIZE		800000
@@ -45,6 +45,7 @@ typedef struct s_board
 	t_index	col;
 	t_index	row;
 	size_t	n_move;
+	t_coin	first;
 }			t_board;
 
 typedef struct s_env
@@ -55,6 +56,7 @@ typedef struct s_env
 }			t_env;
 
 bool	init_board(t_env *e);
+void	init_first_player(t_env *e);
 
 int		play(t_env *e);
 bool	prompt_user(t_env *e);
