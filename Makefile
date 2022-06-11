@@ -6,7 +6,7 @@
 #    By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/06/11 18:30:08 by nguiard          ###   ########.fr        #
+#    Updated: 2022/06/11 19:05:23 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ RM = 	rm -rf
 
 CFLAGS =	-Wall -Werror -Wextra
 
-CFLAGS +=	-O2
+#CFLAGS +=	-O2
 
-#CFLAGS +=	-g3
+CFLAGS +=	-g3
 # CFLAGS +=	-fsanitize=address
 
 LKFLAGS =	-MMD -MP
