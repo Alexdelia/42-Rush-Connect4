@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_win_msg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 10:33:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 21:26:45 by nguiard          ###   ########.fr       */
+/*   Updated: 2022/06/12 14:12:53 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static void	user_win(void)
 {
-	ft_ps("\n  \033[1;32mYou won!\n");
+	ft_psc("\n  You won!\n", "\033[1;32m");
 }
 
 static void	ai_win(void)
 {
-	ft_ps("\n  \033[1;31mYou lost\n");
+	ft_psc("\n  You lost\n", "\033[1;31m");
 }
 
 static void	board_full(void)
 {
-	ft_ps("\n  \033[1;90mboard is full: draw\n");
+	ft_psc("\n  board is full: draw\n", "\033[1;90m");
 }
 
 void	print_win_msg(t_env *e, const int who)
