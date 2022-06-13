@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 12:58:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/06/11 23:18:57 by adelille         ###   ########.fr       */
+/*   Updated: 2022/06/13 11:22:46 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	prompt_user(t_env *e)
 		free(buffer);
 		return (false);
 	}
-	index = atoi(buffer);
+	index = ft_atoi(buffer);
 	free(buffer);
 	if (!is_index_in_range(index, e->b.col))
 		return (false);
